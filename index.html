@@ -1,1 +1,326 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroViva | Agricultura Sustentável</title>
+    <style>
+        /* Reset de Estilos Básicos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --verde-escuro: #2c5e3b;
+            --verde-claro: #4caf50;
+            --verde-folha: #81c784;
+            --bege-claro: #f4f7f4;
+            --texto-escuro: #333333;
+            --branco: #ffffff;
+        }
+
+        body {
+            background-color: var(--bege-claro);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+        }
+
+        /* Barra de Navegação */
+        header {
+            background-color: var(--branco);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--verde-escuro);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--texto-escuro);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--verde-claro);
+        }
+
+        /* Seção Hero (Destaque Principal) */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--branco);
+            padding: 20px;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: var(--verde-claro);
+            color: var(--branco);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--verde-escuro);
+        }
+
+        /* Seções Gerais */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: var(--verde-escuro);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--verde-claro);
+            margin: 10px auto 0;
+        }
+
+        /* Grid de Pilares/Serviços */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--branco);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card icon {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 15px;
+        }
+
+        /* Seção Sobre com Imagem de Lado */
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--verde-escuro);
+            color: var(--branco);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            color: var(--branco);
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Em um cenário real, adicionaria um menu sanduíche aqui */
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .about-container {
+                flex-direction: column-reverse;
+            }
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">🌱 AgroViva</a>
+            <ul class="nav-menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#pilares">Pilares</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>O Futuro da Agricultura é Sustentável</h1>
+        <p>Unindo tecnologia de ponta, respeito à natureza e alta produtividade para alimentar o mundo sem esgotar o amanhã.</p>
+        <a href="#pilares" class="btn">Conheça Nossas Práticas</a>
+    </section>
+
+    <section id="pilares" class="section">
+        <h2 class="section-title">Nossas Práticas Sustentáveis</h2>
+        <div class="grid">
+            <div class="card">
+                <icon>💧</icon>
+                <h3>Manejo de Água</h3>
+                <p>Sistemas de irrigação gota a gota inteligentes e captação de água da chuva para reduzir o desperdício de recursos hídricos.</p>
+            </div>
+            <div class="card">
+                <icon>☀️</icon>
+                <h3>Energia Limpa</h3>
+                <p>Uso de painéis solares e biomassa para abastecer 100% das operações e maquinários da nossa produção.</p>
+            </div>
+            <div class="card">
+                <icon>🪱</icon>
+                <h3>Saúde do Solo</h3>
+                <p>Rotação de culturas, plantio direto e adubação orgânica para manter a terra fértil e rica em biodiversidade.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="section" style="background-color: #ffffff;">
+        <div class="about-container">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad451?auto=format&fit=crop&w=600&q=80" alt="Plantação jovem com tecnologia de monitoramento">
+            </div>
+            <div class="about-text">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 20px; padding-left: 0;">Quem Somos</h2>
+                <p>A <strong>AgroViva</strong> nasceu da certeza de que a produção de alimentos e a preservação ambiental devem caminhar juntas. Somos pioneiros na implementação de técnicas agrícolas que respeitam os ciclos naturais e reduzem a pegada de carbono.</p>
+                <p>Trabalhamos lado a lado com pequenos e grandes produtores, oferecendo consultoria e soluções tecnológicas que provam que a sustentabilidade também é o caminho mais lucrativo e seguro a longo prazo.</p>
+                <br>
+                <a href="#contato" class="btn">Fale com um Especialista</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="footer-content">
+            <div>
+                <h3>AgroViva © 2026</h3>
+                <p>Cultivando um amanhã melhor.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
